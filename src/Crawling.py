@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC  # 기다리는
 import re
 import os
 
-def file_save(df):
+def file_save(df, goods_no):
 
     # 파일을 저장할 폴더 경로
     folder_path = "./data/raw/review"
@@ -20,6 +20,7 @@ def file_save(df):
 
     # csv로 저장
     df.to_csv(f"{folder_path}/musinsa_reviews_{goods_no}.csv", index=False, encoding="utf-8-sig")
+    print(f"{folder_path}에 파일이 저장되었습니다.")
 
 def crawling(goods_no, target_count):
 
@@ -228,7 +229,7 @@ def crawling(goods_no, target_count):
     df["view_count"] = view_count
     df["sales_count"] = sales_count
     
-    file_save(df)
+    file_save(df, goods_no)
 
 if __name__ == "__main__":
 
