@@ -6,10 +6,9 @@ from tqdm import tqdm
 import torch
 import os
 
-def Classification(goods_no, model_name):
-    
+def Classification(path, model_name):
     # 데이터셋 로드
-    df = pd.read_csv(f"./data/raw/review/musinsa_reviews_{goods_no}.csv", encoding="utf-8-sig")
+    df = pd.read_csv(path, encoding="utf-8-sig")
 
     df.rename(columns={'review':'text'}, inplace=True)
 
@@ -72,23 +71,25 @@ def Classification(goods_no, model_name):
     # 라벨링한 리뷰 데이터 파일 저장
 
     # 파일을 저장할 폴더 경로
-    folder_path = f"./data/processed/review/{model_name}"
+    dir_path = f"./data/processed/review/{model_name}"
 
     # 해당 폴더가 없으면
-    if not os.path.exists(folder_path):
+    if not os.path.exists(dir_path):
         # 폴더 생성
-        os.makedirs(folder_path)
+        os.makedirs(dir_path)
 
     # csv로 저장
-    df.to_csv(f"{folder_path}/{model_name}_labeled_reviews_{goods_no}.csv", encoding="utf-8-sig", index=False)
+    file_name = os.path.basename(path)
+    df.to_csv(f"{dir_path}/{model_name}_{file_name}", encoding="utf-8-sig", index=False)
 
-    print(f"- {folder_path}에 파일이 저장되었습니다.")
+    print(f"- {dir_path}에 파일이 저장되었습니다.")
 
 if __name__ == "__main__":
     print("- 리뷰 데이터셋 감성 분류를 시작합니다.")
 
-    # goods_no : 크롤링을 통해 수집한 리뷰 데이터의 상품 번호
-    # model_name : 감성 분류에 사용한 모델(ex. ReBERT, ReELECTRA, KcBERT, KcELECTRA)
-    Classification(goods_no="912314", model_name="ReBERT")
+    path = "./data/raw/review"
+    for file in os.listdir(path):
+        # model_name : 감성 분류에 사용한 모델(ex. ReBERT, ReELECTRA, KcBERT, KcELECTRA)
+        Classification(f"{path}/{file}", model_name="ReBERT")
 
     print("- 감성 분류를 종료합니다.")
