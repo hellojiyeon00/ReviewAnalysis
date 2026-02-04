@@ -281,7 +281,7 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
 ### 1) 저장소 클론
 ```python
 git clone https://github.com/hellojiyeon00/ReviewAnalysis.git
-cd project
+cd ReviewAnalysis
 ```
 
 ### 2) 가상환경 생성
