@@ -10,7 +10,7 @@
 **강지연과 아이들**
 
 ## 🧑‍💻 팀원
-- 강지연 [@nouve53](https://github.com/nouve53)
+- 강지연 [@hellojiyeon00](https://github.com/hellojiyeon00)
 - 곽동원 [@eee334223](https://github.com/eee334223)
 - 안호용 [@hodol0213](https://github.com/hodol0213)
 - 정수아 [@data-suah15](https://github.com/data-suah15)
@@ -280,8 +280,8 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
 
 ### 1) 저장소 클론
 ```python
-git clone https://github.com/nouve53/team3.git
-cd project
+git clone https://github.com/hellojiyeon00/ReviewAnalysis.git
+cd ReviewAnalysis
 ```
 
 ### 2) 가상환경 생성
