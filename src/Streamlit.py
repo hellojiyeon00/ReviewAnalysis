@@ -1,3 +1,6 @@
+# conda activate Re_BERT
+# streamlit run src/Streamlit.py
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -9,7 +12,7 @@ import re
 import json
 
 # Gemini API 설정
-model = genai.Client(api_key="Enter your API key")
+model = genai.Client(api_key=os.getenv("LLM_API_KEY"))
 
 # 페이지 설정
 st.set_page_config(page_title="무신사 리뷰 분석", layout="wide")
