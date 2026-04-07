@@ -1,6 +1,3 @@
-# conda activate Re_BERT
-# streamlit run src/Streamlit.py
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
